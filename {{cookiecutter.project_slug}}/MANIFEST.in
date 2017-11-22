@@ -1,0 +1,4 @@
+include {{ cookiecutter.project_slug }}/VERSION
+include *.rst
+include .coveragerc
+recursive-include atests *.robot *.rst *.html *.txt

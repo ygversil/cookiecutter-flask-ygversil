@@ -1,0 +1,13 @@
+[watcher:{{ cookiecutter.project_slug }}]
+cmd = {{ cookiecutter.project_slug }} --chaussette-fd $(circus.sockets.{{ cookiecutter.project_slug }})
+use_sockets = True
+numprocesses = 3
+copy_env = True
+virtualenv = /opt/{{ cookiecutter.project_slug }}
+
+[socket:{{ cookiecutter.project_slug }}]
+host = 0.0.0.0
+port = 5000
+
+[env:{{ cookiecutter.project_slug }}]
+{{ cookiecutter.project_slug|upper() }}_CONF = /opt/{{ cookiecutter.project_slug }}/etc/{{ cookiecutter.project_slug }}/{{ cookiecutter.project_slug }}.ini
