@@ -21,7 +21,6 @@ Homepage
     Given user is anonymous
     When user browses to application homepage
     Then '{{ cookiecutter.project_name }} homepage' text should be shown
-    Page Should Contain    Muneris homepage
     [Teardown]    Close All Browsers
 
 
