@@ -28,7 +28,7 @@ Homepage
 *** Keywords ***
 
 Start Application
-    ${handle}=    Start Process    muneris
+    ${handle}=    Start Process    {{ cookiecutter.project_slug }}
     Set Suite Variable    ${HANDLE}    ${handle}
 
 Stop Application
