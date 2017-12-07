@@ -20,7 +20,7 @@ Homepage
     [Setup]    Start Virtual Display    1024    768
     Given user is anonymous
     When user browses to application homepage
-    Then 'Muneris homepage' text should be shown
+    Then '{{ cookiecutter.project_name }} homepage' text should be shown
     Page Should Contain    Muneris homepage
     [Teardown]    Close All Browsers
 
