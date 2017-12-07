@@ -20,7 +20,7 @@ Homepage
     [Setup]    Start Virtual Display    1024    768
     Given user is anonymous
     When user browses to application homepage
-    Then '{{ cookiecutter.project_name }} homepage' text should be shown
+    Then Page Should Contain    {{ cookiecutter.project_name }} homepage
     [Teardown]    Close All Browsers
 
 
@@ -38,6 +38,3 @@ User Is Anonymous
 
 User Browses To Application Homepage
     Go To    ${SERVER_URL}
-
-'${text}' text should be shown
-    Page Should Contain    ${text}
