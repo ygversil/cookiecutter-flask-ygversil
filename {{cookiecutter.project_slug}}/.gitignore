@@ -100,3 +100,9 @@ ENV/
 
 # editors
 .lvimrc
+
+# robotframework output
+log.html
+report.html
+output.xml
+*.png
