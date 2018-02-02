@@ -96,4 +96,5 @@ setup(
     entry_points={
         'console_scripts': ['{{ cookiecutter.project_slug }}={{ cookiecutter.project_slug }}.__main__:main']
     },
+    scripts=[os.path.join('{{ cookiecutter.project_slug }}', '{{ cookiecutter.project_slug }}_cli.py')],
 )
