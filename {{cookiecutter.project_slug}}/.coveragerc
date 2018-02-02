@@ -3,7 +3,7 @@ branch = True
 omit =
     {{ cookiecutter.project_slug }}/__init__.py
     {{ cookiecutter.project_slug }}/__main__.py
-    {{ cookiecutter.project_slug }}/flask_cli.py
+    {{ cookiecutter.project_slug }}/{{ cookiecutter.project_slug }}_cli.py
 
 [report]
 # Regexes for lines to exclude from consideration
