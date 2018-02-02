@@ -37,7 +37,8 @@ def start_app():
     if args.chaussette_fd is not None:
         srv = make_chaussette_server(app, host='fd://{0}'.format(args.chaussette_fd))
     else:
-        host, port = app.config['SERVER_NAME'].split(':')
+        strs = app.config['SERVER_NAME'].split(':')
+        host, port = strs if len(strs) == 2 else (strs.pop(), '')
         port = int(port) if port.isdigit() else 5000
         srv = make_chaussette_server(app, host=host, port=port)
     signal.signal(signal.SIGINT, stop_app)
