@@ -32,15 +32,16 @@ def start_app():
     args = command_line_options()
     config = read_config(args.config)
     app = create_app(config)
-    init_logging(app.config['LOG_LEVEL'], app.config['LOG_FILENAME'])
+    logger = init_logging(app.config['LOG_LEVEL'], app.config['LOG_FILENAME'])
     logging.info('Starting {{ cookiecutter.project_slug }}...')
     if args.chaussette_fd is not None:
-        srv = make_chaussette_server(app, host='fd://{0}'.format(args.chaussette_fd))
+        srv = make_chaussette_server(app, host='fd://{0}'.format(args.chaussette_fd),
+                                     logger=logger)
     else:
         strs = app.config['SERVER_NAME'].split(':')
         host, port = strs if len(strs) == 2 else (strs.pop(), '')
         port = int(port) if port.isdigit() else 5000
-        srv = make_chaussette_server(app, host=host, port=port)
+        srv = make_chaussette_server(app, host=host, port=port, logger=logger)
     signal.signal(signal.SIGINT, stop_app)
     signal.signal(signal.SIGTERM, stop_app)
     srv.serve_forever()

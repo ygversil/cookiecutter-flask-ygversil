@@ -76,6 +76,7 @@ def init_logging(str_level='warning', filename=None):
     else:
         log_opts['stream'] = sys.stdout
     logging.basicConfig(**log_opts)
+    return logging.getLogger()
 
 
 def create_app(config):
