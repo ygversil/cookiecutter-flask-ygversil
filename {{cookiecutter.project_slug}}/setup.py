@@ -48,7 +48,7 @@ setup(
     ],  # XXX: update classifiers and remove comment
     keywords='flask wsgi web',  # XXX: update keywords and remove comment
     packages=find_packages(exclude=['docs', 'tests', 'atests']),
-    py_modules=['{{ cookiecutter.project_slug }}_app'],
+    py_modules=['{0}_app'.format(project_slug)],
     install_requires=[
         'chaussette',
         'circus',
@@ -87,12 +87,12 @@ setup(
     },
     data_files=[
         ('examples', [
-            '{{ cookiecutter.project_slug }}.ini.example',
+            '{0}.ini.example'.format(project_slug),
             'circus.ini.example',
         ]),
     ],
     entry_points={
-        'console_scripts': ['{{ cookiecutter.project_slug }}={{ cookiecutter.project_slug }}.__main__:main']
+        'console_scripts': ['{0}={0}.__main__:main'.format(project_slug)]
     },
-    scripts=[os.path.join('{{ cookiecutter.project_slug }}', '{{ cookiecutter.project_slug }}_cli.py')],
+    scripts=[os.path.join(project_slug, '{0}_cli.py'.format(project_slug))],
 )
