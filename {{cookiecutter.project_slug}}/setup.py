@@ -7,18 +7,13 @@ import os
 project_slug = '{{ cookiecutter.project_slug }}'
 root_path = os.path.abspath(os.path.dirname(__file__))
 
-# Get the version from the VERSION file
-with open(os.path.join(root_path, project_slug, 'VERSION'),
-          encoding='utf-8') as f:
-    version = f.read().strip()
-
 # Get the long description from the README file
 with open(os.path.join(root_path, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
     name=project_slug,
-    version=version,
+    version='{{ cookiecutter.version }}',
     description='{{ cookiecutter.project_short_description }}',
     long_description=long_description,
     url='{{ cookiecutter.project_repo_url }}',
@@ -81,9 +76,6 @@ setup(
             'robotframework',
             'tox',
         ],
-    },
-    package_data={
-        project_slug: ['VERSION'],
     },
     data_files=[
         ('examples', [

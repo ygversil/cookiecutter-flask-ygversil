@@ -16,6 +16,11 @@ from {{ cookiecutter.project_slug }}.views import (
 )
 
 
+__author__ = """{{ cookiecutter.full_name }}"""
+__email__ = '{{ cookiecutter.email }}'
+__version__ = '{{ cookiecutter.version }}'
+
+
 _DEFAULT_CONFIG = {
     'SERVER_NAME': 'localhost:5000',
     'LOG_LEVEL': 'warning',
