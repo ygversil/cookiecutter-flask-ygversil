@@ -9,13 +9,15 @@ root_path = os.path.abspath(os.path.dirname(__file__))
 
 # Get the long description from the README file
 with open(os.path.join(root_path, 'README.rst'), encoding='utf-8') as f:
-    long_description = f.read()
+    readme = f.read()
+with open(os.path.join(root_path, 'HISTORY.rst')) as history_file:
+    history = history_file.read()
 
 setup(
     name=project_slug,
     version='{{ cookiecutter.version }}',
     description='{{ cookiecutter.project_short_description }}',
-    long_description=long_description,
+    long_description='{0}\n\n{1}'.format(readme, history),
     url='{{ cookiecutter.project_repo_url }}',
     author='{{ cookiecutter.project_author_name }}',
     author_email='{{ cookiecutter.project_author_email }}',
